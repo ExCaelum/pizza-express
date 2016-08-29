@@ -1,0 +1,30 @@
+{
+  "name": "pizza-express",
+  "version": "1.0.0",
+  "description": "A place to make pizza",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExCaelum/pizza-express.git"
+  },
+  "keywords": [
+    "express",
+    "pizza",
+    "mod4"
+  ],
+  "author": "Parker Phillips",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ExCaelum/pizza-express/issues"
+  },
+  "homepage": "https://github.com/ExCaelum/pizza-express#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2"
+  }
+}
