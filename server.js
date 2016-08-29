@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
+const generateId = require('./lib/generate-id');
 
 app.use(express.static('static'));
 app.use(bodyParser.json());
@@ -16,8 +17,16 @@ app.get('/', (request, response) => {
 });
 
 app.post('/pizzas', (request, response) => {
-   response.sendStatus(201);
- });
+  if (!request.body.pizza) { return response.sendStatus(400); }
+  var id = generateId();
+  app.locals.pizzas[id] = request.body.pizza;
+  response.redirect('/pizzas/' + id);
+});
+
+app.get('/pizzas/:id', (request, response) => {
+  var pizza = app.locals.pizzas[request.params.id];
+  response.render('pizza', { pizza: pizza })
+});
 
 if (!module.parent) {
   app.listen(app.get('port'), () => {
